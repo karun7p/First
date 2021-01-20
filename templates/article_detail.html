@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<br><br>
+<h2>
+	{{ object.title }}
+</h2>
+
+<p>Posted By: {{ object.author }}</p>
+<p>Posted On: {{ object.post_date }}</p>
+<p> Category: <a href="{% url 'article-category' object.category %}">  {{ object.category }} </a> </p>
+<h5>{{ object.content }}</h5>
+<br><br>
+
+{% if object.author.username == request.user.username %}
+<a href="delete/" class="btn btn-secondary"> Delete </a>
+{% endif %}
+
+<a href="{% url 'home' %}" class="btn btn-secondary"> Back </a>
+
+{% endblock %}
