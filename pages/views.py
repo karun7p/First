@@ -71,6 +71,7 @@ def home_view(request, *args, **kwargs):
 		return redirect('login')
 	
 	query_set = Article.objects.all()
+	print(query_set)
 	my_list = query_set[::-1]
 	context = {
 		'object_list' : my_list
